@@ -1,0 +1,44 @@
+import React, { Component } from "react"
+import PropTypes from "prop-types"
+import LinkButton from "./Atoms/LinkButton/LinkButton"
+import "../css/Mininavbar.css"
+
+class Mininavbar extends Component {
+
+   static propTypes = {
+      /* Passed down from one of the four main landing pages. Used to complete
+         the path, and used on part of the button face on the LinkButton Atom.
+         name options are Beer, Recipe, Restaurant, RV. */
+      name: PropTypes.string,
+
+      /* Passed down from one of the four main landing pages.
+         Use to customize the Mininavbar. This is _id from the db. */
+      chosenId: PropTypes.string,
+
+      /* Passed down from one of the four main landing pages.
+         Used to customize the Mininavbar. Only the user who entered the data
+         is allowed to Edit / Delete the data. */
+      allowedToModifySelection: PropTypes.bool
+   }
+
+   render() {
+
+      const { allowedToModifySelection, chosenId, name } = this.props
+
+      const newPath = `/${name.toLowerCase()}/new`
+      const editPath = `/${name.toLowerCase()}/edit`
+      // const deletePath = `/${this.props.name.toLowerCase()}/delete`
+
+      return (
+         <div className="Mininavbar-main-container">
+
+         <LinkButton newPath={newPath} name={name} buttonLabel="Add New"/>
+         {allowedToModifySelection && <LinkButton buttonLabel="Edit" newPath={editPath} name={name} />}
+         {allowedToModifySelection && <LinkButton buttonLabel="Delete" chosenId={chosenId} newPath="/delete" name={name} />}
+
+         </div>
+      )
+   }
+}
+
+export default Mininavbar

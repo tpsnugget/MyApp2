@@ -27,7 +27,8 @@ class RestaurantShow extends Component {
                      <span>{address}</span>
                   </p>
                   <p>{phone}</p>
-                  <a href={website} target="_blank" rel="noopener noreferrer">Website: {name}</a>
+                  {website === "N/A" ? "" :
+                     <a href={website} target="_blank" rel="noopener noreferrer">Website:{" "}{name}</a>}
                   <p><strong>Cuisine:</strong>{" "}{cuisine}</p>
                   <p><strong>Favorite Food:</strong>{" "}{favFood}</p>
                   <p><strong>Price:</strong>{" "}{price}</p>

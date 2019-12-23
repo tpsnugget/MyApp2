@@ -29,8 +29,10 @@ class RVShow extends Component {
                      <span>{address}</span>
                   </p>
                   <p>{phone}</p>
-                  <a href={website} target="_blank" rel="noopener noreferrer">Website: {name}</a>
-                  <a href={reviewWebsite} target="_blank" rel="noopener noreferrer">Review Website URL</a>
+                  {website === "N/A" ? "" :
+                     <a href={website} target="_blank" rel="noopener noreferrer">Website:{" "}{name}</a>}
+                  {reviewWebsite === "N/A" ? "" :
+                     <a href={reviewWebsite} target="_blank" rel="noopener noreferrer">Review Website URL</a>}
                   <p><strong>Review Website Rating:</strong>{" "}{reviewWebsiteRating}</p>
                   <p><strong>Site Id:</strong>{" "}{siteId}</p>
                   <p><strong>Site Electrical Hookup:</strong>{" "}{electricalHookup}</p>
@@ -50,7 +52,7 @@ class RVShow extends Component {
                </div>
             </div>
             <div className="RVShow-lower-container">
-            <p><strong>Notes:</strong>{" "}{notes}</p>
+               <p><strong>Notes:</strong>{" "}{notes}</p>
             </div>
          </div>
       )

@@ -30,7 +30,7 @@ class InputTextDoubleLength extends Component {
 
    render() {
 
-      const { type, name, label, placeholder } = this.props
+      const { type, name, label, placeholder, value } = this.props
 
       return (
          <label className="InputTextDoubleLength-label"><span className="InputTextDoubleLength-span">{label}</span>
@@ -38,6 +38,7 @@ class InputTextDoubleLength extends Component {
                <input
                   type={type}
                   name={name}
+                  value={value}
                   className="InputTextDoubleLength-input"
                   placeholder={placeholder}
                   onChange={this.handleChangeHere}

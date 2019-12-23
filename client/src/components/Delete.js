@@ -53,7 +53,7 @@ class Delete extends Component{
    render(){
 
       const { goodDelete, snackBarGreenOpen, snackBarRedOpen } = this.state
-      const { type, id } = this.props.location.state
+      const { type } = this.props.location.state
 
       const path = `/${type.toLowerCase()}`
       

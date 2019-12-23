@@ -30,18 +30,25 @@ class DestinationNew extends Component {
          streetAddress: "",
          city: "",
          state: "",
-         zip: "",
+         locationCode: "",
+         airportCode: "",
+         country: "",
+         continent: "",
          phone: "",
          latitude: "",
          longitude: "",
          image: "",
          website: "",
          rating: "",
-         notes: "",
+         personaNotes: "",
+         pubNotes: "",
+         restaurantNotes: "",
+         sightNotes: "",
+         tourNotes: "",
          snackBarGreenOpen: false,
          snackBarRedOpen: false,
          msg: "",
-         addBeerSuccessful: false
+         addDestinationSuccessful: false
       }
       this.handleChange = this.handleChange.bind(this)
       this.handleSubmit = this.handleSubmit.bind(this)
@@ -56,29 +63,35 @@ class DestinationNew extends Component {
    handleSubmit(e) {
       e.preventDefault()
 
-      const newBeer = {
+      const newDestination = {
          name: this.state.name,
          streetAddress: this.state.streetAddress,
          city: this.state.city,
          state: this.state.state,
-         zip: this.state.zip,
+         locationCode: this.state.locationCode,
+         airportCode: this.state.airportCode,
+         country: this.state.country,
+         continent: this.state.continent,
          phone: this.state.phone,
          latitude: this.state.latitude,
          longitude: this.state.longitude,
          image: this.state.image,
          website: this.state.website,
          rating: this.state.rating,
-         notes: this.state.notes,
+         personalNotes: this.state.personalNotes,
+         pubNotes: this.state.pubNotes,
+         restaurantNotes: this.state.restaurantNotes,
+         sightNotes: this.state.sightNotes,
+         tourNotes: this.state.tourNotes,
          addedBy: this.props.username
       }
 
-      axios.post("http://localhost:9000/beer", newBeer)
+      axios.post("http://localhost:9000/destination", newDestination)
          .then((response) => {
-            // console.log(response)
             if (response.data.name === "MongoError") {
                this.setState({
                   snackBarRedOpen: true,
-                  msg: "Beer was not added..."
+                  msg: "Destination was not added..."
                })
                setTimeout(() => {
                   this.setState({
@@ -89,13 +102,13 @@ class DestinationNew extends Component {
             } else {
                this.setState({
                   snackBarGreenOpen: true,
-                  msg: "Beer was added!"
+                  msg: "Destination was added!"
                })
                setTimeout(() => {
                   this.setState({
                      snackBarGreenOpen: false,
                      msg: "",
-                     addBeerSuccessful: true
+                     addDestinationSuccessful: true
                   })
                }, 2000);
             }
@@ -105,11 +118,11 @@ class DestinationNew extends Component {
 
    render() {
 
-      const { addBeerSuccessful, snackBarGreenOpen, snackBarRedOpen } = this.state
+      const { addDestinationSuccessful, snackBarGreenOpen, snackBarRedOpen } = this.state
 
       return (
          <div className="DestinationNew-main-container">
-            {addBeerSuccessful && <Redirect to="/beer" />}
+            {addDestinationSuccessful && <Redirect to="/beer" />}
             <div className="DestinationNew-form-container">
                <h1 className="DestinationNew-h1">Add a New Destination</h1>
                <form
@@ -127,8 +140,15 @@ class DestinationNew extends Component {
                   <div className="DestinationNew-div-row">
                      <InputText label="City:" type="text" name="city" handleChange={this.handleChange} />
                      <InputText label="State:" type="text" name="state" handleChange={this.handleChange} />
-                     <InputText label="Zip Code:" type="text" name="zip" handleChange={this.handleChange} />
+                     <InputText label="Location Code:" type="text" name="locationCode" handleChange={this.handleChange} />
                   </div>
+
+                  <div className="DestinationNew-div-row">
+                     <InputText label="Airport Code:" type="text" name="airportCode" handleChange={this.handleChange} />
+                     <InputText label="Country:" type="text" name="country" handleChange={this.handleChange} />
+                     <InputText label="Continent:" type="text" name="continent" handleChange={this.handleChange} />
+                  </div>
+
 
                   <div className="DestinationNew-div-row">
                      <InputText label="Phone:" type="text" name="phone" handleChange={this.handleChange} />
@@ -137,101 +157,31 @@ class DestinationNew extends Component {
                   </div>
 
                   <div className="DestinationNew-div-row">
-                     <InputTextTripleLength label="Beer Image URL:" type="text" name="image" handleChange={this.handleChange} />
+                     <InputTextTripleLength label="Image URL:" type="text" name="image" handleChange={this.handleChange} />
                   </div>
 
                   <div className="DestinationNew-div-row">
                      <InputTextTripleLength label="Website URL:" type="text" name="website" handleChange={this.handleChange} />
                   </div>
-
-                  <div className="DestinationNew-div-row">
                   
-                     <label className="InputText-label"><span className="InputText-span">Beer Type:</span>
-                        <div>
-                           <select
-                              type="text"
-                              name="beerType"
-                              className="DestinationNew-select"
-                              onChange={this.handleChange}
-                           >
-                              <option value="">Select a Beer Type</option>
-                              <option value="ale">Ale</option>
-                              <option value="amberAle">Amber Ale</option>
-                              <option value="blackIpa">Black IPA</option>
-                              <option value="brownAle">Brown Ale</option>
-                              <option value="creamStout">Cream Stout</option>
-                              <option value="doubleIpa">Double IPA</option>
-                              <option value="englishBitter">English Bitter</option>
-                              <option value="englishSpecialBitter">English Special Bitter</option>
-                              <option value="ipa">IPA</option>
-                              <option value="paleAle">Pale Ale</option>
-                              <option value="porter">Porter</option>
-                              <option value="redAle">Red Ale</option>
-                              <option value="scotchAle">Scotch Ale</option>
-                              <option value="stout">Stout</option>
-                              <option value="wheat">Wheat</option>
-                           </select>
-                        </div>
-                     </label>
-                     <label className="InputText-label"><span className="InputText-span">Beer Color:</span>
-                        <div>
-                           <select
-                              type="text"
-                              name="beerColor"
-                              className="DestinationNew-select"
-                              onChange={this.handleChange}
-                           >
-                              <option value="">Select a Beer Color</option>
-                              <option value="paleStraw">Pale Straw</option>
-                              <option value="straw">Straw</option>
-                              <option value="paleGold">Pale Gold</option>
-                              <option value="deepGold">Deep Gold</option>
-                              <option value="paleAmber">Pale Amber</option>
-                              <option value="mediumAmber">Medium Amber</option>
-                              <option value="deepAmber">Deep Amber</option>
-                              <option value="amberBrown">Amber Brown</option>
-                              <option value="brwon">Brown</option>
-                              <option value="rubyBrown">Ruby Brown</option>
-                              <option value="deepBrown">Deep Brown</option>
-                              <option value="black">Black</option>
-                           </select>
-                        </div>
-                     </label>
-                     <label className="InputText-label"><span className="InputText-span">Recommended Glassware:</span>
-                        <div>
-                           <select
-                              type="text"
-                              name="glassware"
-                              className="DestinationNew-select"
-                              onChange={this.handleChange}
-                           >
-                              <option value="">Select Proper Glassware</option>
-                              <option value="goblet">Goblet</option>
-                              <option value="imperial">Imperial</option>
-                              <option value="krugMug">Krug Mug</option>
-                              <option value="nonic">Nonic</option>
-                              <option value="pilsner">Pilsner</option>
-                              <option value="shaker">Shaker</option>
-                              <option value="snifter">Snifter</option>
-                              <option value="stange">Stange</option>
-                              <option value="tankard">Tankard</option>
-                              <option value="tulip">Tulip</option>
-                              <option value="weiss">Weiss</option>
-                           </select>
-                        </div>
-                     </label>
+                  <div className="DestinationNew-div-row">
+                     <TextArea rows="5" cols="89" label="Pubs To Checkout:" name="pubNotes" placeholder="Pubs to Checkout" type="text" handleChange={this.handleChange} />
                   </div>
 
                   <div className="DestinationNew-div-row">
-
-                     <InputText label="ABV:" type="text" name="abv" handleChange={this.handleChange} />
-                     <InputText label="IBU:" type="text" name="ibu" handleChange={this.handleChange} />
-                     <InputText label="Rating:" type="text" name="rating" handleChange={this.handleChange} />
-
+                     <TextArea rows="5" cols="89" label="Restaurants To Try:" name="restaurantNotes" placeholder="Restaurants To Try" type="text" handleChange={this.handleChange} />
                   </div>
 
                   <div className="DestinationNew-div-row">
-                     <TextArea rows="5" cols="89" label="Notes:" name="notes" placeholder="Enter Personal Notes Here" type="text" handleChange={this.handleChange} />
+                     <TextArea rows="5" cols="89" label="Sights To See:" name="sightNotes" placeholder="Sights To See" type="text" handleChange={this.handleChange} />
+                  </div>
+
+                  <div className="DestinationNew-div-row">
+                     <TextArea rows="5" cols="89" label="Tours To Take:" name="tourNotes" placeholder="Tours To Take" type="text" handleChange={this.handleChange} />
+                  </div>
+
+                  <div className="DestinationNew-div-row">
+                     <TextArea rows="5" cols="89" label="Personal Notes:" name="personalNotes" placeholder="Enter Personal Notes Here" type="text" handleChange={this.handleChange} />
                   </div>
 
                   <div className="DestinationNew-div-row DestinationNew-submit-button">

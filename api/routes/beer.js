@@ -71,7 +71,7 @@ router.delete('/', async function (req, res) {
         res.send(deletedBeer)
      }
   })
-});
+})
 
 // /* Put (Update) One Recipe */
 // router.put('/', async function (req, res) {

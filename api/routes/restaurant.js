@@ -62,4 +62,17 @@ router.post("/", function (req, res) {
   })
 })
 
+/* Delete One RESTAURANT */
+router.delete('/', async function (req, res) {
+  await Restaurant.findByIdAndRemove(req.query, (err, deletedRestaurant) => {
+     if (err) {
+        console.error(err.errmsg)
+        res.send(err)
+     } else {
+        console.log(deletedRestaurant)
+        res.send(deletedRestaurant)
+     }
+  })
+})
+
 module.exports = router;

@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import { Redirect } from "react-router-dom"
+import SnackbarGreen from "./Atoms/SnackbarGreen/SnackbarGreen"
+import SnackbarRed from "./Atoms/SnackbarRed/SnackbarRed"
 import axios from "axios"
 
 class Delete extends Component{
@@ -7,6 +9,9 @@ class Delete extends Component{
    constructor(props){
       super(props)
       this.state = {
+         snackBarGreenOpen: false,
+         snackBarRedOpen: false,
+         msg: "",
          goodDelete: false
       }
    }
@@ -25,20 +30,19 @@ class Delete extends Component{
          .then((response) => {
             if (response.data.name === "MongoError") {
                this.setState({
-                  snackBarOpen: true,
+                  snackBarRedOpen: true,
                   msg: "Delete was not successfull"
                })
             } else {
                this.setState({
-                  snackBarOpen: true,
+                  snackBarGreenOpen: true,
                   msg: "Delete was successful",
-                  goodDelete: true
                })
                setTimeout(() => {
                   this.setState({
-                     snackBarOpen: false,
+                     snackBarGreenOpen: false,
                      msg: "",
-                     goodDelete: false,
+                     goodDelete: true
                   })
                }, 2500);
             }
@@ -48,7 +52,7 @@ class Delete extends Component{
 
    render(){
 
-      const { goodDelete } = this.state
+      const { goodDelete, snackBarGreenOpen, snackBarRedOpen } = this.state
       const { type, id } = this.props.location.state
 
       const path = `/${type.toLowerCase()}`
@@ -56,8 +60,8 @@ class Delete extends Component{
       return(
          <div>
             {goodDelete && <Redirect to={path} />}
-            <h2>Type: {type}</h2>
-            <h2>Id: {id}</h2>
+            {snackBarGreenOpen && <SnackbarGreen msg={this.state.msg} />}
+            {snackBarRedOpen && <SnackbarRed msg={this.state.msg} />}
          </div>
       )
    }

@@ -67,4 +67,17 @@ router.post("/", function (req, res) {
   })
 })
 
+/* Delete One RV */
+router.delete('/', async function (req, res) {
+  await RV.findByIdAndRemove(req.query, (err, deletedRV) => {
+     if (err) {
+        console.error(err.errmsg)
+        res.send(err)
+     } else {
+        console.log(deletedRV)
+        res.send(deletedRV)
+     }
+  })
+})
+
 module.exports = router;

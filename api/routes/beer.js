@@ -29,7 +29,7 @@ const beerSchema = new mongoose.Schema({
 
 const Beer = mongoose.model("Beer", beerSchema)
 
-/* Get Beer */
+/* Get All BEERs */
 router.get('/', function (req, res) {
   console.log("Get Beer req.query: ", req.query)
   // Beer.find(req.query, {name: 1, image: 1}, function (err, foundBeer) {
@@ -45,7 +45,7 @@ router.get('/', function (req, res) {
   })
 });
 
-/* Add A New Beer */
+/* Add A New BEER */
 router.post("/", function (req, res) {
   // console.log("User Post Route req.body", req.body)
   Beer.create(req.body, (err, newBeer) => {
@@ -59,5 +59,31 @@ router.post("/", function (req, res) {
     }
   })
 })
+
+/* Delete One BEER */
+router.delete('/', async function (req, res) {
+  await Beer.findByIdAndRemove(req.query, (err, deletedBeer) => {
+     if (err) {
+        console.error(err.errmsg)
+        res.send(err)
+     } else {
+        console.log(deletedBeer)
+        res.send(deletedBeer)
+     }
+  })
+});
+
+// /* Put (Update) One Recipe */
+// router.put('/', async function (req, res) {
+//    await Recipe.findByIdAndUpdate({_id: req.body._id}, req.body, (err, deletedBeer) => {
+//      if (err) {
+//         console.error(err.errmsg)
+//         res.send(err)
+//      } else {
+//         console.log(deletedBeer)
+//         res.send(deletedBeer)
+//      }
+//    })
+// })
 
 module.exports = router;

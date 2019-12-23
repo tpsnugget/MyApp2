@@ -7,6 +7,8 @@ import Login from "./components/Login"
 import Delete from "./components/Delete"
 import Beer from "./components/sections/beer/components/Beer"
 import BeerNew from "./components/sections/beer/components/BeerNew"
+import Destination from "./components/sections/destination/components/Destination"
+import DestinationNew from "./components/sections/destination/components/DestinationNew"
 import Recipe from "./components/sections/recipe/components/Recipe"
 import RecipeNew from "./components/sections/recipe/components/RecipeNew"
 import Restaurant from "./components/sections/restaurant/components/Restaurant"
@@ -46,9 +48,9 @@ class App extends Component {
       <div className="App">
         <Navbar isLoggedIn={isLoggedIn} loggedInName={loggedInName} logout={this.logout} />
         <Switch>
-          
+
           <Route exact path="/landing">
-            {isLoggedIn && <Landing />} 
+            {isLoggedIn && <Landing />}
           </Route>
           <Route exact path="/login">
             <Login updateLoggedInName={this.updateLoggedInName} />
@@ -60,35 +62,42 @@ class App extends Component {
           </Route>
 
           <Route exact path="/beer">
-            {isLoggedIn && <Beer name="Beer" loggedInName={loggedInName}/>}
+            {isLoggedIn && <Beer name="Beer" loggedInName={loggedInName} />}
           </Route>
           <Route exact path="/beer/new">
-            {isLoggedIn && <BeerNew username={loggedInName}/>}
+            {isLoggedIn && <BeerNew username={loggedInName} />}
           </Route>
           {/* <Route exact path="/beer/delete">
             {isLoggedIn && <BeerDelete />}
           </Route> */}
 
+          <Route exact path="/destination">
+            {isLoggedIn && <Destination name="Destination" loggedInName={loggedInName} />}
+          </Route>
+          <Route exact path="/destination/new">
+            {isLoggedIn && <DestinationNew username={loggedInName} />}
+          </Route>Ï
+
 
           <Route exact path="/recipe">
-            {isLoggedIn && <Recipe name="Recipe" loggedInName={loggedInName}/>}
+            {isLoggedIn && <Recipe name="Recipe" loggedInName={loggedInName} />}
           </Route>
           <Route exact path="/recipe/new">
-            {isLoggedIn && <RecipeNew username={loggedInName}/>}
+            {isLoggedIn && <RecipeNew username={loggedInName} />}
           </Route>
 
           <Route exact path="/restaurant">
-            {isLoggedIn && <Restaurant name="Restaurant" loggedInName={loggedInName}/>}
+            {isLoggedIn && <Restaurant name="Restaurant" loggedInName={loggedInName} />}
           </Route>
           <Route exact path="/restaurant/new">
-            {isLoggedIn && <RestaurantNew username={loggedInName}/>}
+            {isLoggedIn && <RestaurantNew username={loggedInName} />}
           </Route>
 
           <Route exact path="/rv">
-            {isLoggedIn && <RV name="RV" loggedInName={loggedInName}/>}
+            {isLoggedIn && <RV name="RV" loggedInName={loggedInName} />}
           </Route>
           <Route exact path="/rv/new">
-            {isLoggedIn && <RVNew username={loggedInName}/>}
+            {isLoggedIn && <RVNew username={loggedInName} />}
           </Route>
 
         </Switch>

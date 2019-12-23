@@ -30,12 +30,14 @@ class Restaurant extends Component {
       this.handleShow = this.handleShow.bind(this)
    }
 
-   handleShow(id) {
+   handleShow(name, id) {
       this.setState({
          chosenId: id
       })
 
-      axios.get("http://localhost:9000/restaurant", {
+      const url = `http://localhost:9000/${name.toLowerCase()}`
+
+      axios.get(url, {
          params: {
             _id: id
          }

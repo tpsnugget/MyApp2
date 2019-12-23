@@ -7,6 +7,9 @@ import Sidebar from "../../../Sidebar"
 import Mininavbar from "../../../Mininavbar"
 import CancelLink from "../../../Atoms/CancelLink/CancelLink"
 import BeerShow from "./BeerShow"
+// import RecipeShow from "../../recipe/components/RecipeShow"
+// import RestaurantShow from "../../restaurant/components/RestaurantShow"
+// import RVShow from "../../rv/components/RVShow"
 import "../css/Beer.css"
 
 
@@ -63,6 +66,8 @@ class Beer extends Component {
 
       const allowedToModifySelection = (addedBy === loggedInName ? true : false)
 
+      // const component = `${name}Show`
+
       return (
          <div className="Beer-main-container">
             <div className="Beer-nav-container">
@@ -71,6 +76,10 @@ class Beer extends Component {
                   <Mininavbar name={name} chosenId={chosenId} allowedToModifySelection={allowedToModifySelection} />
                   <div>
                      {(chosenId !== "") && <BeerShow data={data} />}
+                     {/* {(chosenId !== "" && name === "Beer") && <BeerShow data={data} />} */}
+                     {/* {(chosenId !== "" && name === "Recipe") && <RecipeShow data={data} />}
+                     {(chosenId !== "" && name === "Restaurant") && <RestaurantShow data={data} />}
+                     {(chosenId !== "" && name === "RV") && <RVShow data={data} />} */}
                   </div>
                   <div className="Beer-cancel">
                      <CancelLink />

@@ -29,7 +29,14 @@ class LinkButton extends Component {
       return (
          <div className="LinkButton-div">
             <Link
-               to={newPath}
+               // to={newPath}
+               to={{
+                  pathname: newPath,
+                  state: {
+                     id: chosenId,
+                     type: name      
+                  }
+               }}
                className="LinkButton-link-new"
             >
                {buttonLabel} {name}

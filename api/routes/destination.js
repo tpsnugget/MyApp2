@@ -20,7 +20,7 @@ const destinationSchema = new mongoose.Schema({
   image: String,
   website: String,
   rating: String,
-  personaNotes: String,
+  personalNotes: String,
   pubNotes: String,
   restaurantNotes: String,
   sightNotes: String,
@@ -74,17 +74,19 @@ router.delete('/', async function (req, res) {
   })
 })
 
-// /* Put (Update) One Recipe */
-// router.put('/', async function (req, res) {
-//    await Recipe.findByIdAndUpdate({_id: req.body._id}, req.body, (err, deletedDestination) => {
-//      if (err) {
-//         console.error(err.errmsg)
-//         res.send(err)
-//      } else {
-//         console.log(deletedDestination)
-//         res.send(deletedDestination)
-//      }
-//    })
-// })
+/* Put (Update) One Recipe */
+router.put('/', async function (req, res) {
+  console.log("Update Destination req.body.id", req.body.id)
+  console.log("Update Destination req.body", req.body)
+   await Destination.findByIdAndUpdate({_id: req.body.id}, req.body, (err, updatedDestination) => {
+     if (err) {
+        console.error(err.errmsg)
+        res.send(err)
+     } else {
+        console.log(updatedDestination)
+        res.send(updatedDestination)
+     }
+   })
+})
 
 module.exports = router;

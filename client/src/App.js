@@ -7,6 +7,7 @@ import Login from "./components/Login"
 import Delete from "./components/Delete"
 import Beer from "./components/sections/beer/components/Beer"
 import BeerNew from "./components/sections/beer/components/BeerNew"
+import BeerEdit from "./components/sections/beer/components/BeerEdit"
 import Destination from "./components/sections/destination/components/Destination"
 import DestinationNew from "./components/sections/destination/components/DestinationNew"
 import Recipe from "./components/sections/recipe/components/Recipe"
@@ -61,15 +62,15 @@ class App extends Component {
           <Route exact path="/delete" component={Delete}>
           </Route>
 
+
           <Route exact path="/beer">
             {isLoggedIn && <Beer name="Beer" loggedInName={loggedInName} />}
           </Route>
           <Route exact path="/beer/new">
             {isLoggedIn && <BeerNew username={loggedInName} />}
           </Route>
-          {/* <Route exact path="/beer/delete">
-            {isLoggedIn && <BeerDelete />}
-          </Route> */}
+          <Route exact path="/beer/edit" component={BeerEdit}>
+          </Route>
 
           <Route exact path="/destination">
             {isLoggedIn && <Destination name="Destination" loggedInName={loggedInName} />}

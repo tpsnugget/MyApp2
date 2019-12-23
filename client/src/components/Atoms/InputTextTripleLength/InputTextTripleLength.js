@@ -30,7 +30,7 @@ class InputTextTripleLength extends Component {
 
    render() {
 
-      const { type, name, label, placeholder } = this.props
+      const { type, name, label, placeholder, value } = this.props
 
       return (
          <label className="InputTextTripleLength-label"><span className="InputTextTripleLength-span">{label}</span>
@@ -38,6 +38,7 @@ class InputTextTripleLength extends Component {
                <input
                   type={type}
                   name={name}
+                  value={value}
                   className="InputTextTripleLength-input"
                   placeholder={placeholder}
                   onChange={this.handleChangeHere}

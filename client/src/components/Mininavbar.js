@@ -33,7 +33,7 @@ class Mininavbar extends Component {
          <div className="Mininavbar-main-container">
 
          <LinkButton newPath={newPath} name={name} buttonLabel="Add New"/>
-         {allowedToModifySelection && <LinkButton buttonLabel="Edit" newPath={editPath} name={name} />}
+         {allowedToModifySelection && <LinkButton buttonLabel="Edit" chosenId={chosenId} newPath={editPath} name={name} />}
          {allowedToModifySelection && <LinkButton buttonLabel="Delete" chosenId={chosenId} newPath="/delete" name={name} />}
 
          </div>

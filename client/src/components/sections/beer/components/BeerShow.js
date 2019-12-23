@@ -29,7 +29,8 @@ class BeerShow extends Component {
                   <span>{address}</span>
                </p>
                <p>{phone}</p>
-               <a href={website} target="_blank" rel="noopener noreferrer">Website: {brewery}</a>
+               {(website === "N/A" || website === "") ? "" :
+                  <a href={website} target="_blank" rel="noopener noreferrer">Website:{" "}{brewery}</a>}
                <p>{description}</p>
                <p>{numbers}</p>
             </div>

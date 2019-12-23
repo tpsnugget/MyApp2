@@ -26,7 +26,8 @@ class RecipeShow extends Component {
                   <h1>{name} by {creator}</h1>
                   <p>{description}</p>
                   <p>{metrics}</p>
-                  <a href={website} target="_blank" rel="noopener noreferrer">Website: {name}</a>
+                  {website === "N/A" ? "" :
+                     <a href={website} target="_blank" rel="noopener noreferrer">Website:{" "}{name}</a>}
                </div>
                <div className="RecipeShow-right-container">
                   <img src={image} alt={name} className="RecipeShow-img" />

@@ -30,7 +30,7 @@ class InputText extends Component {
 
    render() {
 
-      const { type, name, label, placeholder } = this.props
+      const { type, name, label, placeholder, value } = this.props
 
       return (
          // <label className={className}><span className={spanClassName}>{label}</span>
@@ -39,6 +39,7 @@ class InputText extends Component {
                <input
                   type={type}
                   name={name}
+                  value={value}
                   // className={inputClassName}
                   className="InputText-input"
                   placeholder={placeholder}

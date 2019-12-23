@@ -79,7 +79,24 @@ class BeerEdit extends Component {
             this.setState({
                id: this.state.data._id,
                name: this.state.data.name,
-               brewery: this.state.data.brewery
+               brewery: this.state.data.brewery,
+               streetAddress: this.state.data.streetAddress,
+               city: this.state.data.city,
+               state: this.state.data.state,
+               zip: this.state.data.zip,
+               phone: this.state.data.phone,
+               latitude: this.state.data.latitude,
+               longitude: this.state.data.longitude,
+               image: this.state.data.image,
+               website: this.state.data.website,
+               beerType: this.state.data.beerType,
+               beerColor: this.state.data.beerColor,
+               glassware: this.state.data.glassware,
+               abv: this.state.data.abv,
+               ibu: this.state.data.ibu,
+               rating: this.state.data.rating,
+               notes: this.state.data.notes,
+               addedBy: this.state.data.username
             })
          } )
          .catch((err) => console.log(err))
@@ -123,7 +140,7 @@ class BeerEdit extends Component {
             if (response.data.name === "MongoError") {
                this.setState({
                   snackBarRedOpen: true,
-                  msg: "Beer was not added..."
+                  msg: "Beer was not Updated..."
                })
                setTimeout(() => {
                   this.setState({
@@ -134,7 +151,7 @@ class BeerEdit extends Component {
             } else {
                this.setState({
                   snackBarGreenOpen: true,
-                  msg: "Beer was added!"
+                  msg: "Beer was Updated!"
                })
                setTimeout(() => {
                   this.setState({
@@ -150,7 +167,9 @@ class BeerEdit extends Component {
 
    render() {
 
-      const { addBeerSuccessful, snackBarGreenOpen, snackBarRedOpen, name, brewery } = this.state
+      const { addBeerSuccessful, snackBarGreenOpen, snackBarRedOpen, name, brewery, streetAddress,
+              city, state, zip, phone, latitude, longitude, image, website, beerType,
+              beerColor, glassware, abv, ibu, rating, notes } = this.state
 
       // const { id } = this.props.location.state
 
@@ -169,27 +188,27 @@ class BeerEdit extends Component {
                   </div>
 
                   <div className="BeerEdit-div-row">
-                     <InputTextDoubleLength label="Street Address:" type="text" name="streetAddress" handleChange={this.handleChange} />
+                     <InputTextDoubleLength label="Street Address:" type="text" name="streetAddress" value={streetAddress} handleChange={this.handleChange} />
                   </div>
 
                   <div className="BeerEdit-div-row">
-                     <InputText label="City:" type="text" name="city" handleChange={this.handleChange} />
-                     <InputText label="State:" type="text" name="state" handleChange={this.handleChange} />
-                     <InputText label="Zip Code:" type="text" name="zip" handleChange={this.handleChange} />
+                     <InputText label="City:" type="text" name="city" value={city} handleChange={this.handleChange} />
+                     <InputText label="State:" type="text" name="state" value={state} handleChange={this.handleChange} />
+                     <InputText label="Zip Code:" type="text" name="zip" value={zip} handleChange={this.handleChange} />
                   </div>
 
                   <div className="BeerEdit-div-row">
-                     <InputText label="Phone:" type="text" name="phone" handleChange={this.handleChange} />
-                     <InputText label="Latitude:" type="text" name="latitude" handleChange={this.handleChange} />
-                     <InputText label="Longitude:" type="text" name="longitude" handleChange={this.handleChange} />
+                     <InputText label="Phone:" type="text" name="phone" value={phone} handleChange={this.handleChange} />
+                     <InputText label="Latitude:" type="text" name="latitude" value={latitude} handleChange={this.handleChange} />
+                     <InputText label="Longitude:" type="text" name="longitude" value={longitude} handleChange={this.handleChange} />
                   </div>
 
                   <div className="BeerEdit-div-row">
-                     <InputTextTripleLength label="Beer Image URL:" type="text" name="image" handleChange={this.handleChange} />
+                     <InputTextTripleLength label="Beer Image URL:" type="text" name="image" value={image} handleChange={this.handleChange} />
                   </div>
 
                   <div className="BeerEdit-div-row">
-                     <InputTextTripleLength label="Website URL:" type="text" name="website" handleChange={this.handleChange} />
+                     <InputTextTripleLength label="Website URL:" type="text" name="website" value={website} handleChange={this.handleChange} />
                   </div>
 
                   <div className="BeerEdit-div-row">
@@ -202,7 +221,7 @@ class BeerEdit extends Component {
                               className="BeerEdit-select"
                               onChange={this.handleChange}
                            >
-                              <option value="">Select a Beer Type</option>
+                              <option value={beerType}>{beerType}</option>
                               <option value="ale">Ale</option>
                               <option value="amberAle">Amber Ale</option>
                               <option value="blackIpa">Black IPA</option>
@@ -229,7 +248,7 @@ class BeerEdit extends Component {
                               className="BeerEdit-select"
                               onChange={this.handleChange}
                            >
-                              <option value="">Select a Beer Color</option>
+                              <option value={beerColor}>{beerColor}</option>
                               <option value="paleStraw">Pale Straw</option>
                               <option value="straw">Straw</option>
                               <option value="paleGold">Pale Gold</option>
@@ -253,7 +272,7 @@ class BeerEdit extends Component {
                               className="BeerEdit-select"
                               onChange={this.handleChange}
                            >
-                              <option value="">Select Proper Glassware</option>
+                              <option value={glassware}>{glassware}</option>
                               <option value="goblet">Goblet</option>
                               <option value="imperial">Imperial</option>
                               <option value="krugMug">Krug Mug</option>
@@ -272,14 +291,14 @@ class BeerEdit extends Component {
 
                   <div className="BeerEdit-div-row">
 
-                     <InputText label="ABV:" type="text" name="abv" handleChange={this.handleChange} />
-                     <InputText label="IBU:" type="text" name="ibu" handleChange={this.handleChange} />
-                     <InputText label="Rating:" type="text" name="rating" handleChange={this.handleChange} />
+                     <InputText label="ABV:" type="text" name="abv" value={abv} handleChange={this.handleChange} />
+                     <InputText label="IBU:" type="text" name="ibu" value={ibu} handleChange={this.handleChange} />
+                     <InputText label="Rating:" type="text" name="rating" value={rating} handleChange={this.handleChange} />
 
                   </div>
 
                   <div className="BeerEdit-div-row">
-                     <TextArea rows="5" cols="89" label="Notes:" name="notes" placeholder="Enter Personal Notes Here" type="text" handleChange={this.handleChange} />
+                     <TextArea rows="5" cols="89" label="Notes:" name="notes" placeholder="Enter Personal Notes Here" type="text" value={notes} handleChange={this.handleChange} />
                   </div>
 
                   <div className="BeerEdit-div-row BeerEdit-submit-button">

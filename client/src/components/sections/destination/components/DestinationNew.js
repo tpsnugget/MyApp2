@@ -122,7 +122,7 @@ class DestinationNew extends Component {
 
       return (
          <div className="DestinationNew-main-container">
-            {addDestinationSuccessful && <Redirect to="/beer" />}
+            {addDestinationSuccessful && <Redirect to="/destination" />}
             <div className="DestinationNew-form-container">
                <h1 className="DestinationNew-h1">Add a New Destination</h1>
                <form
@@ -183,6 +183,11 @@ class DestinationNew extends Component {
                   <div className="DestinationNew-div-row">
                      <TextArea rows="5" cols="89" label="Personal Notes:" name="personalNotes" placeholder="Enter Personal Notes Here" type="text" handleChange={this.handleChange} />
                   </div>
+
+                  <div className="DestinationNew-div-row">
+                     <InputText label="Rating:" type="text" name="rating" handleChange={this.handleChange} />
+                  </div>
+
 
                   <div className="DestinationNew-div-row DestinationNew-submit-button">
                      <Button label="Submit" />

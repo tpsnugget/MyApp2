@@ -1,29 +1,66 @@
 import React, { Component } from "react"
 import { Redirect } from "react-router-dom"
-// import PropTypes from "prop-types"
-// import axios from "axios"
+import axios from "axios"
 
-class BeerDelete extends Component{
+class Delete extends Component{
 
-   // static propTypes = {
-   //    /* name (Beer) is passed down from Beer.js to Mininavbar to here */
-   //    name: PropTypes.string,
+   constructor(props){
+      super(props)
+      this.state = {
+         goodDelete: false
+      }
+   }
 
-   //    /* Passed down from Beer.js to Mininavbar to here */
-   //    chosenId: PropTypes.string
-   // }
+   componentDidMount(){
+
+      const { type, id } = this.props.location.state
+
+      const url = `http://localhost:9000/${type.toLowerCase()}`
+
+      axios.delete(url, {
+         params: {
+            _id: id
+         }
+      })
+         .then((response) => {
+            if (response.data.name === "MongoError") {
+               this.setState({
+                  snackBarOpen: true,
+                  msg: "Delete was not successfull"
+               })
+            } else {
+               this.setState({
+                  snackBarOpen: true,
+                  msg: "Delete was successful",
+                  goodDelete: true
+               })
+               setTimeout(() => {
+                  this.setState({
+                     snackBarOpen: false,
+                     msg: "",
+                     goodDelete: false,
+                  })
+               }, 2500);
+            }
+         })
+         .catch((err) => console.log(err))
+   }
 
    render(){
 
-      // const { name } = this.props
+      const { goodDelete } = this.state
+      const { type, id } = this.props.location.state
+
+      const path = `/${type.toLowerCase()}`
       
       return(
          <div>
-            {/* <Redirect to={name.toLowerCase()} /> */}
-            <Redirect to="/landing" />
+            {goodDelete && <Redirect to={path} />}
+            <h2>Type: {type}</h2>
+            <h2>Id: {id}</h2>
          </div>
       )
    }
 }
 
-export default BeerDelete
+export default Delete

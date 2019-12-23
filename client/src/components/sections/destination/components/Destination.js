@@ -1,4 +1,4 @@
-/* RV LANDING PAGE */
+/* BEER LANDING PAGE */
 
 import React, { Component } from "react"
 import axios from "axios"
@@ -6,19 +6,19 @@ import PropTypes from "prop-types"
 import Sidebar from "../../../Sidebar"
 import Mininavbar from "../../../Mininavbar"
 import CancelLink from "../../../Atoms/CancelLink/CancelLink"
-import RVShow from "./RVShow"
-import "../css/RV.css"
+// import BeerShow from "./BeerShow"
+import "../css/Destination.css"
 
 
-class RV extends Component {
+class Destination extends Component {
 
    static propTypes = {
-      /* name (RV) comes from App.js, sent to Sidebar and Mininavbar */
+      /* name (Destination) comes from App.js, sent to Sidebar and Mininavbar */
       name: PropTypes.string,
 
       /* Passed down from App.js. Used to determine if active user is the one
-   who added the selected RESTAURANT to the db. They are the only one who can
-   Edit or Delete the selected RESTAURANT. */
+         who added the selected BEER to the db. They are the only one who can
+         Edit or Delete the selected BEER. */
       loggedInName: PropTypes.string
    }
 
@@ -64,15 +64,15 @@ class RV extends Component {
       const allowedToModifySelection = (addedBy === loggedInName ? true : false)
 
       return (
-         <div className="RV-main-container">
-            <div className="RV-nav-container">
+         <div className="Destination-main-container">
+            <div className="Destination-nav-container">
                <Sidebar name={name} select={this.handleShow} />
-               <div className="RV-inner-container">
+               <div className="Destination-inner-container">
                   <Mininavbar name={name} chosenId={chosenId} allowedToModifySelection={allowedToModifySelection} />
                   <div>
-                     {(chosenId !== "") && <RVShow data={data} />}
+                     {/* {(chosenId !== "") && <BeerShow data={data} />} */}
                   </div>
-                  <div className="RV-cancel">
+                  <div className="Destination-cancel">
                      <CancelLink />
                   </div>
                </div>
@@ -82,4 +82,4 @@ class RV extends Component {
    }
 }
 
-export default RV
+export default Destination

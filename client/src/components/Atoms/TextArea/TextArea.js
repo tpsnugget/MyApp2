@@ -27,12 +27,12 @@ class TextArea extends Component {
 
    render() {
 
-      const { rows, cols, label, placeholder, type, name } = this.props
+      const { rows, cols, label, placeholder, type, name, value } = this.props
 
       return (
          <label className="TextArea-label"><span className="TextArea-span">{label}</span>
             <div>
-               <textarea className="TextArea-textarea" rows={rows} cols={cols} placeholder={placeholder} type={type} name={name} onChange={this.handleChangeHere}>
+               <textarea className="TextArea-textarea" rows={rows} cols={cols} name={name} placeholder={placeholder} type={type} value={value} onChange={this.handleChangeHere}>
 
                </textarea>
             </div>

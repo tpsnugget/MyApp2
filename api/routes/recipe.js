@@ -54,4 +54,17 @@ router.post("/", function (req, res) {
   })
 })
 
+/* Delete One RECIPE */
+router.delete('/', async function (req, res) {
+  await Recipe.findByIdAndRemove(req.query, (err, deletedRecipe) => {
+     if (err) {
+        console.error(err.errmsg)
+        res.send(err)
+     } else {
+        console.log(deletedRecipe)
+        res.send(deletedRecipe)
+     }
+  })
+})
+
 module.exports = router;

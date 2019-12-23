@@ -75,8 +75,8 @@ router.delete('/', async function (req, res) {
 
 /* Put (Update) One Recipe */
 router.put('/', async function (req, res) {
-  console.log("Update Beer req.body.id", req.body.id)
-  console.log("Update Beer req.body", req.body)
+  // console.log("Update Beer req.body.id", req.body.id)
+  // console.log("Update Beer req.body", req.body)
    await Beer.findByIdAndUpdate({_id: req.body.id}, req.body, (err, updatedBeer) => {
      if (err) {
         console.error(err.errmsg)

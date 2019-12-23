@@ -10,6 +10,7 @@ import BeerNew from "./components/sections/beer/components/BeerNew"
 import BeerEdit from "./components/sections/beer/components/BeerEdit"
 import Destination from "./components/sections/destination/components/Destination"
 import DestinationNew from "./components/sections/destination/components/DestinationNew"
+import DestinationEdit from "./components/sections/destination/components/DestinationEdit"
 import Recipe from "./components/sections/recipe/components/Recipe"
 import RecipeNew from "./components/sections/recipe/components/RecipeNew"
 import Restaurant from "./components/sections/restaurant/components/Restaurant"
@@ -77,6 +78,8 @@ class App extends Component {
           </Route>
           <Route exact path="/destination/new">
             {isLoggedIn && <DestinationNew username={loggedInName} />}
+          </Route>Ï
+          <Route exact path="/destination/edit" component={DestinationEdit}>
           </Route>Ï
 
 

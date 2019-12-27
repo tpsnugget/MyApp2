@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom"
 import SnackbarGreen from "./Atoms/SnackbarGreen/SnackbarGreen"
 import SnackbarRed from "./Atoms/SnackbarRed/SnackbarRed"
 import { InputText } from "./Atoms/InputText/InputText"
-import Button from "./Atoms/Button/Button"
+import { Button } from "./Atoms/Button/Button"
 import axios from "axios"
 import "../css/User.css"
 

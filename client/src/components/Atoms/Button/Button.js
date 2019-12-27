@@ -1,22 +1,15 @@
-import React, { Component } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import "./Button.css"
 
-class Button extends Component{
+export const Button = ({ label }) => {
 
-   static propTypes = {
+   Button.propTypes = {
       /* Text used for the face of the button */
       label: PropTypes.string
    }
 
-   render(){
-
-      const { label } = this.props
-
       return(
          <button className="Button-button">{label}</button>
       )
-   }
 }
-
-export default Button

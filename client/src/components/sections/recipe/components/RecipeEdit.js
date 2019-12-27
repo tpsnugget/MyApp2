@@ -15,7 +15,7 @@ import axios from "axios"
 import "../css/RecipeNew.css"
 
 
-class RecipeNew extends Component {
+class RecipeEdit extends Component {
 
    static propTypes = {
       /* Passed down from App.js, gets added to database to identify which
@@ -99,7 +99,7 @@ class RecipeNew extends Component {
    handleSubmit(e) {
       e.preventDefault()
 
-      const newRecipe = {
+      const editRecipe = {
          id: this.state.id,
          name: this.state.name,
          creator: this.state.creator,
@@ -116,7 +116,7 @@ class RecipeNew extends Component {
          addedBy: this.props.username
       }
 
-      axios.put("http://localhost:9000/recipe", newRecipe)
+      axios.put("http://localhost:9000/recipe", editRecipe)
          .then((response) => {
             // console.log(response)
             if (response.data.name === "MongoError") {
@@ -239,4 +239,4 @@ class RecipeNew extends Component {
    }
 }
 
-export default RecipeNew
+export default RecipeEdit

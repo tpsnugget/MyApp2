@@ -177,6 +177,10 @@ class RecipeNew extends Component {
                      <TextArea rows="5" cols="89" label="Notes:" name="notes" placeholder="Enter Personal Notes Here" type="text" handleChange={this.handleChange} />
                   </div>
 
+                  {snackBarGreenOpen && <SnackbarGreen msg={this.state.msg} />}
+                  {snackBarRedOpen && <SnackbarRed msg={this.state.msg} />}
+
+
                   <div className="RecipeNew-div-row RecipeNew-submit-button">
                      <Button label="Submit" />
                   </div>
@@ -187,8 +191,6 @@ class RecipeNew extends Component {
             <div>
                <CancelLink />
             </div>
-            {snackBarGreenOpen && <SnackbarGreen msg={this.state.msg} />}
-            {snackBarRedOpen && <SnackbarRed msg={this.state.msg} />}
          </div >
       )
    }

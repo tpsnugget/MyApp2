@@ -207,6 +207,9 @@ class RestaurantNew extends Component {
                      <TextArea rows="5" cols="89" label="Notes:" name="notes" placeholder="Enter Personal Notes Here" type="text" handleChange={this.handleChange} />
                   </div>
 
+                  {snackBarGreenOpen && <SnackbarGreen msg={this.state.msg} />}
+                  {snackBarRedOpen && <SnackbarRed msg={this.state.msg} />}
+
                   <div className="RestaurantNew-div-row RestaurantNew-submit-button">
                      <Button label="Submit" />
                   </div>
@@ -214,11 +217,9 @@ class RestaurantNew extends Component {
                </form>
             </div>
 
-               <div>
-                  <CancelLink />
-               </div>
-            {snackBarGreenOpen && <SnackbarGreen msg={this.state.msg} />}
-            {snackBarRedOpen && <SnackbarRed msg={this.state.msg} />}
+            <div>
+               <CancelLink />
+            </div>
          </div >
       )
    }

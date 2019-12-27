@@ -163,7 +163,7 @@ class DestinationNew extends Component {
                   <div className="DestinationNew-div-row">
                      <InputTextTripleLength label="Website URL:" type="text" name="website" handleChange={this.handleChange} />
                   </div>
-                  
+
                   <div className="DestinationNew-div-row">
                      <TextArea rows="5" cols="89" label="Pubs To Checkout:" name="pubNotes" placeholder="Pubs to Checkout" type="text" handleChange={this.handleChange} />
                   </div>
@@ -188,6 +188,8 @@ class DestinationNew extends Component {
                      <InputText label="Rating:" type="text" name="rating" handleChange={this.handleChange} />
                   </div>
 
+                  {snackBarGreenOpen && <SnackbarGreen msg={this.state.msg} />}
+                  {snackBarRedOpen && <SnackbarRed msg={this.state.msg} />}
 
                   <div className="DestinationNew-div-row DestinationNew-submit-button">
                      <Button label="Submit" />
@@ -199,8 +201,6 @@ class DestinationNew extends Component {
             <div>
                <CancelLink />
             </div>
-            {snackBarGreenOpen && <SnackbarGreen msg={this.state.msg} />}
-            {snackBarRedOpen && <SnackbarRed msg={this.state.msg} />}
          </div >
       )
    }

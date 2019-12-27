@@ -50,7 +50,7 @@ class RecipeEdit extends Component {
       this.handleSubmit = this.handleSubmit.bind(this)
    }
 
-   componentDidMount(){
+   componentDidMount() {
       this.setState({
          chosenId: this.props.location.state.id,
       })
@@ -69,7 +69,7 @@ class RecipeEdit extends Component {
                })
             }
          })
-         .then( () => {
+         .then(() => {
             this.setState({
                id: this.state.data._id,
                name: this.state.data.name,
@@ -86,7 +86,7 @@ class RecipeEdit extends Component {
                notes: this.state.data.notes,
                addedBy: this.state.data.username
             })
-         } )
+         })
          .catch((err) => console.log(err))
    }
 
@@ -150,8 +150,8 @@ class RecipeEdit extends Component {
    render() {
 
       const { name, creator, description, image, website, servings, time, ingredients,
-              prepSteps, keywords, rating, notes, addRecipeSuccessful, snackBarGreenOpen,
-              snackBarRedOpen } = this.state
+         prepSteps, keywords, rating, notes, addRecipeSuccessful, snackBarGreenOpen,
+         snackBarRedOpen } = this.state
 
       return (
          <div className="RecipeNew-main-container">
@@ -222,6 +222,9 @@ class RecipeEdit extends Component {
                      <TextArea rows="5" cols="89" label="Notes:" name="notes" placeholder="Enter Personal Notes Here" type="text" value={notes} handleChange={this.handleChange} />
                   </div>
 
+                  {snackBarGreenOpen && <SnackbarGreen msg={this.state.msg} />}
+                  {snackBarRedOpen && <SnackbarRed msg={this.state.msg} />}
+
                   <div className="RecipeNew-div-row RecipeNew-submit-button">
                      <Button label="Submit" />
                   </div>
@@ -232,8 +235,6 @@ class RecipeEdit extends Component {
             <div>
                <CancelLink />
             </div>
-            {snackBarGreenOpen && <SnackbarGreen msg={this.state.msg} />}
-            {snackBarRedOpen && <SnackbarRed msg={this.state.msg} />}
          </div >
       )
    }

@@ -346,6 +346,9 @@ class RVNew extends Component {
                      <TextArea rows="10" cols="89" label="Notes:" name="notes" placeholder="Personal Notes" type="text" handleChange={this.handleChange} />
                   </div>
 
+                  {snackBarGreenOpen && <SnackbarGreen msg={this.state.msg} />}
+                  {snackBarRedOpen && <SnackbarRed msg={this.state.msg} />}
+
                   <div className="RVNew-div-row RVNew-submit-button">
                      <Button label="Submit" />
                   </div>
@@ -356,8 +359,6 @@ class RVNew extends Component {
             <div>
                <CancelLink />
             </div>
-            {snackBarGreenOpen && <SnackbarGreen msg={this.state.msg} />}
-            {snackBarRedOpen && <SnackbarRed msg={this.state.msg} />}
          </div >
       )
    }

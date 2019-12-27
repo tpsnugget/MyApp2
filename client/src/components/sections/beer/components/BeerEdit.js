@@ -56,7 +56,7 @@ class BeerEdit extends Component {
       this.handleSubmit = this.handleSubmit.bind(this)
    }
 
-   componentDidMount(){
+   componentDidMount() {
       this.setState({
          chosenId: this.props.location.state.id,
       })
@@ -75,7 +75,7 @@ class BeerEdit extends Component {
                })
             }
          })
-         .then( () => {
+         .then(() => {
             this.setState({
                id: this.state.data._id,
                name: this.state.data.name,
@@ -98,7 +98,7 @@ class BeerEdit extends Component {
                notes: this.state.data.notes,
                addedBy: this.state.data.username
             })
-         } )
+         })
          .catch((err) => console.log(err))
    }
 
@@ -168,8 +168,8 @@ class BeerEdit extends Component {
    render() {
 
       const { addBeerSuccessful, snackBarGreenOpen, snackBarRedOpen, name, brewery, streetAddress,
-              city, state, zip, phone, latitude, longitude, image, website, beerType,
-              beerColor, glassware, abv, ibu, rating, notes } = this.state
+         city, state, zip, phone, latitude, longitude, image, website, beerType,
+         beerColor, glassware, abv, ibu, rating, notes } = this.state
 
       // const { id } = this.props.location.state
 
@@ -212,7 +212,7 @@ class BeerEdit extends Component {
                   </div>
 
                   <div className="BeerEdit-div-row">
-                  
+
                      <label className="InputText-label"><span className="InputText-span">Beer Type:</span>
                         <div>
                            <select
@@ -301,6 +301,9 @@ class BeerEdit extends Component {
                      <TextArea rows="5" cols="89" label="Notes:" name="notes" placeholder="Enter Personal Notes Here" type="text" value={notes} handleChange={this.handleChange} />
                   </div>
 
+                  {snackBarGreenOpen && <SnackbarGreen msg={this.state.msg} />}
+                  {snackBarRedOpen && <SnackbarRed msg={this.state.msg} />}
+
                   <div className="BeerEdit-div-row BeerEdit-submit-button">
                      <Button label="Submit" />
                   </div>
@@ -311,8 +314,6 @@ class BeerEdit extends Component {
             <div>
                <CancelLink />
             </div>
-            {snackBarGreenOpen && <SnackbarGreen msg={this.state.msg} />}
-            {snackBarRedOpen && <SnackbarRed msg={this.state.msg} />}
          </div >
       )
    }

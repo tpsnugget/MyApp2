@@ -54,7 +54,7 @@ class DestinationEdit extends Component {
       this.handleSubmit = this.handleSubmit.bind(this)
    }
 
-   componentDidMount(){
+   componentDidMount() {
       this.setState({
          chosenId: this.props.location.state.id,
       })
@@ -73,7 +73,7 @@ class DestinationEdit extends Component {
                })
             }
          })
-         .then( () => {
+         .then(() => {
             this.setState({
                id: this.state.data._id,
                name: this.state.data.name,
@@ -97,7 +97,7 @@ class DestinationEdit extends Component {
                tourNotes: this.state.data.tourNotes,
                addedBy: this.state.data.username
             })
-         } )
+         })
          .catch((err) => console.log(err))
    }
 
@@ -167,10 +167,10 @@ class DestinationEdit extends Component {
    render() {
 
       const { addDestinationSuccessful, snackBarGreenOpen, snackBarRedOpen,
-              name, streetAddress, city, state, locationCode, airportCode,
-              country, continent, phone, latitude, longitude, image,
-              website, rating, personalNotes, pubNotes, restaurantNotes,
-              sightNotes, tourNotes } = this.state
+         name, streetAddress, city, state, locationCode, airportCode,
+         country, continent, phone, latitude, longitude, image,
+         website, rating, personalNotes, pubNotes, restaurantNotes,
+         sightNotes, tourNotes } = this.state
 
       return (
          <div className="DestinationNew-main-container">
@@ -215,7 +215,7 @@ class DestinationEdit extends Component {
                   <div className="DestinationNew-div-row">
                      <InputTextTripleLength label="Website URL:" type="text" name="website" value={website} handleChange={this.handleChange} />
                   </div>
-                  
+
                   <div className="DestinationNew-div-row">
                      <TextArea rows="5" cols="89" label="Pubs To Checkout:" name="pubNotes" placeholder="Pubs to Checkout" type="text" value={pubNotes} handleChange={this.handleChange} />
                   </div>
@@ -240,6 +240,8 @@ class DestinationEdit extends Component {
                      <InputText label="Rating:" type="text" name="rating" value={rating} handleChange={this.handleChange} />
                   </div>
 
+                  {snackBarGreenOpen && <SnackbarGreen msg={this.state.msg} />}
+                  {snackBarRedOpen && <SnackbarRed msg={this.state.msg} />}
 
                   <div className="DestinationNew-div-row DestinationNew-submit-button">
                      <Button label="Submit" />
@@ -251,8 +253,6 @@ class DestinationEdit extends Component {
             <div>
                <CancelLink />
             </div>
-            {snackBarGreenOpen && <SnackbarGreen msg={this.state.msg} />}
-            {snackBarRedOpen && <SnackbarRed msg={this.state.msg} />}
          </div >
       )
    }

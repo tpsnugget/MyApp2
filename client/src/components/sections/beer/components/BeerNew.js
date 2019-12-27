@@ -158,7 +158,7 @@ class BeerNew extends Component {
                   </div>
 
                   <div className="BeerNew-div-row">
-                  
+
                      <label className="InputText-label"><span className="InputText-span">Beer Type:</span>
                         <div>
                            <select
@@ -247,6 +247,9 @@ class BeerNew extends Component {
                      <TextArea rows="5" cols="89" label="Notes:" name="notes" placeholder="Enter Personal Notes Here" type="text" handleChange={this.handleChange} />
                   </div>
 
+                  {snackBarGreenOpen && <SnackbarGreen msg={this.state.msg} />}
+                  {snackBarRedOpen && <SnackbarRed msg={this.state.msg} />}
+
                   <div className="BeerNew-div-row BeerNew-submit-button">
                      <Button label="Submit" />
                   </div>
@@ -257,8 +260,6 @@ class BeerNew extends Component {
             <div>
                <CancelLink />
             </div>
-            {snackBarGreenOpen && <SnackbarGreen msg={this.state.msg} />}
-            {snackBarRedOpen && <SnackbarRed msg={this.state.msg} />}
          </div >
       )
    }

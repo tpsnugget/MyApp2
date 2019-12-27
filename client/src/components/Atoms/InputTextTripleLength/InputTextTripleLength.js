@@ -2,51 +2,42 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import "./InputTextTripleLength.css"
 
-class InputTextTripleLength extends Component {
+export const InputTextTripleLength = ({ label, name, placeholder, type, value, handleChange }) => {
 
-   static propTypes = {
-      /* input type = text, password, ... */
-      type: PropTypes.string,
-
-      /* name is from the Parent state */
-      name: PropTypes.string,
+   InputTextTripleLength.propTypes = {
+      /* Passed down from New / Edit Components */
 
       /* label is what is displayed on top of the input box for the user */
       label: PropTypes.string,
 
+      /* name is from the Parent state */
+      name: PropTypes.string,
+
       /* placeholder is what is displayed inside of the textarea input box for the user */
-      placeholder: PropTypes.string
+      placeholder: PropTypes.string,
+
+      /* input type = text, password, ... */
+      type: PropTypes.string,
+
+      /* Show value currently stored in that field that was pulled from the db */
+      value: PropTypes.string,
+
+      /* Changes the state in the Parent Component */
+      handleChange: PropTypes.func
    }
-
-   constructor(props) {
-      super(props)
-      this.handleChangeHere = this.handleChangeHere.bind(this)
-   }
-
-   handleChangeHere(e) {
-      e.preventDefault()
-      this.props.handleChange(e)
-   }
-
-   render() {
-
-      const { type, name, label, placeholder, value } = this.props
 
       return (
          <label className="InputTextTripleLength-label"><span className="InputTextTripleLength-span">{label}</span>
             <div>
                <input
+                  className="InputTextTripleLength-input"
                   type={type}
                   name={name}
-                  value={value}
-                  className="InputTextTripleLength-input"
                   placeholder={placeholder}
-                  onChange={this.handleChangeHere}
+                  value={value}
+                  onChange={handleChange}
                />
             </div>
          </label>
       )
-   }
 }
-
-export default InputTextTripleLength

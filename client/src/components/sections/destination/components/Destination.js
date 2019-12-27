@@ -57,7 +57,7 @@ class Destination extends Component {
 
    render() {
 
-      const { chosenId, data } = this.state
+      const { chosenId } = this.state
       const { addedBy } = this.state.data
       const { loggedInName, name } = this.props
 

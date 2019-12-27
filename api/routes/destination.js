@@ -30,7 +30,7 @@ const destinationSchema = new mongoose.Schema({
 
 const Destination = mongoose.model("Destination", destinationSchema)
 
-/* Get All Destinations */
+/* Get All DESTINATIONs */
 router.get('/', function (req, res) {
   console.log("Get Destination req.query: ", req.query)
   // Destination.find(req.query, {name: 1, image: 1}, function (err, foundDestination) {
@@ -46,7 +46,7 @@ router.get('/', function (req, res) {
   })
 });
 
-/* Add A New Destination */
+/* Add A New DESTINATION */
 router.post("/", function (req, res) {
   // console.log("User Post Route req.body", req.body)
   Destination.create(req.body, (err, newDestination) => {
@@ -61,7 +61,7 @@ router.post("/", function (req, res) {
   })
 })
 
-/* Delete One Destination */
+/* Delete One DESTINATION */
 router.delete('/', async function (req, res) {
   await Destination.findByIdAndRemove(req.query, (err, deletedDestination) => {
      if (err) {
@@ -74,7 +74,7 @@ router.delete('/', async function (req, res) {
   })
 })
 
-/* Put (Update) One Recipe */
+/* Put (Update) One DESTINATION */
 router.put('/', async function (req, res) {
   console.log("Update Destination req.body.id", req.body.id)
   console.log("Update Destination req.body", req.body)

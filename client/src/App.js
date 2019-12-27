@@ -16,6 +16,7 @@ import RecipeNew from "./components/sections/recipe/components/RecipeNew"
 import RecipeEdit from "./components/sections/recipe/components/RecipeEdit"
 import Restaurant from "./components/sections/restaurant/components/Restaurant"
 import RestaurantNew from "./components/sections/restaurant/components/RestaurantNew"
+import RestaurantEdit from "./components/sections/restaurant/components/RestaurantEdit"
 import RV from "./components/sections/rv/components/RV"
 import RVNew from "./components/sections/rv/components/RVNew"
 import './css/App.css';
@@ -98,6 +99,8 @@ class App extends Component {
           </Route>
           <Route exact path="/restaurant/new">
             {isLoggedIn && <RestaurantNew username={loggedInName} />}
+          </Route>
+          <Route exact path="/restaurant/edit" component={RestaurantEdit}>
           </Route>
 
           <Route exact path="/rv">

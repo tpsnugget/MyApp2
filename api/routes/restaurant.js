@@ -75,4 +75,19 @@ router.delete('/', async function (req, res) {
   })
 })
 
+/* Put (Update) One RESTAURANT */
+router.put('/', async function (req, res) {
+  // console.log("Update Beer req.body.id", req.body.id)
+  // console.log("Update Beer req.body", req.body)
+   await Restaurant.findByIdAndUpdate({_id: req.body.id}, req.body, (err, updatedRestaurant) => {
+     if (err) {
+        console.error(err.errmsg)
+        res.send(err)
+     } else {
+        console.log(updatedRestaurant)
+        res.send(updatedRestaurant)
+     }
+   })
+})
+
 module.exports = router;

@@ -73,7 +73,7 @@ router.delete('/', async function (req, res) {
   })
 })
 
-/* Put (Update) One Recipe */
+/* Put (Update) One BEER */
 router.put('/', async function (req, res) {
   // console.log("Update Beer req.body.id", req.body.id)
   // console.log("Update Beer req.body", req.body)

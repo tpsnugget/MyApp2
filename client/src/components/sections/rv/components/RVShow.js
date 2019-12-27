@@ -30,21 +30,21 @@ class RVShow extends Component {
                   </p>
                   <p>{phone}</p>
                   {website === "N/A" ? "" :
-                     <a href={website} target="_blank" rel="noopener noreferrer">Website:{" "}{name}</a>}
+                     <div><a href={website} target="_blank" rel="noopener noreferrer">Website:{" "}{name}</a></div>}
                   {reviewWebsite === "N/A" ? "" :
-                     <a href={reviewWebsite} target="_blank" rel="noopener noreferrer">Review Website URL</a>}
+                     <div><a href={reviewWebsite} target="_blank" rel="noopener noreferrer">Review Website URL</a></div>}
                   <p><strong>Review Website Rating:</strong>{" "}{reviewWebsiteRating}</p>
                   <p><strong>Site Id:</strong>{" "}{siteId}</p>
                   <p><strong>Site Electrical Hookup:</strong>{" "}{electricalHookup}</p>
-                  <p><strong>Site Water Hookup:</strong>{" "}{water}</p>
-                  <p><strong>Site Sewer Hookup:</strong>{" "}{sewerHookup}</p>
-                  <p><strong>Campground Dump Station:</strong>{" "}{dumpStation}</p>
-                  <p><strong>Pull-through Site:</strong>{" "}{pullThroughSite}</p>
+                  <p><strong>Site Water Hookup:</strong>{" "}{water ? "Yes" : "No"}</p>
+                  <p><strong>Site Sewer Hookup:</strong>{" "}{sewerHookup ? "Yes" : "No"}</p>
+                  <p><strong>Campground Dump Station:</strong>{" "}{dumpStation ? "Yes" : "No"}</p>
+                  <p><strong>Pull-through Site:</strong>{" "}{pullThroughSite ? "Yes" : "No"}</p>
                   <p><strong>Price:</strong>{" "}{rate}</p>
-                  <p><strong>Pets Allowed:</strong>{" "}{petsAllowed}</p>
+                  <p><strong>Pets Allowed:</strong>{" "}{petsAllowed ? "Yes" : "No"}</p>
                   <p><strong>Pets Restrictions:</strong>{" "}{petRestrictions}</p>
-                  <p><strong>Campground Restrooms:</strong>{" "}{restrooms}</p>
-                  <p><strong>Campground Showers:</strong>{" "}{showers}</p>
+                  <p><strong>Campground Restrooms:</strong>{" "}{restrooms ? "Yes" : "No"}</p>
+                  <p><strong>Campground Showers:</strong>{" "}{showers ? "Yes" : "No"}</p>
                   <p><strong>My Rating:</strong>{" "}{myRating}</p>
                </div>
                <div className="RVShow-right-container">

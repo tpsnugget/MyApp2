@@ -13,6 +13,7 @@ import DestinationNew from "./components/sections/destination/components/Destina
 import DestinationEdit from "./components/sections/destination/components/DestinationEdit"
 import Recipe from "./components/sections/recipe/components/Recipe"
 import RecipeNew from "./components/sections/recipe/components/RecipeNew"
+import RecipeEdit from "./components/sections/recipe/components/RecipeEdit"
 import Restaurant from "./components/sections/restaurant/components/Restaurant"
 import RestaurantNew from "./components/sections/restaurant/components/RestaurantNew"
 import RV from "./components/sections/rv/components/RV"
@@ -88,6 +89,8 @@ class App extends Component {
           </Route>
           <Route exact path="/recipe/new">
             {isLoggedIn && <RecipeNew username={loggedInName} />}
+          </Route>
+          <Route exact path="/recipe/edit" component={RecipeEdit}>
           </Route>
 
           <Route exact path="/restaurant">

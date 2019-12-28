@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import LinkButton from "./Atoms/LinkButton/LinkButton"
+import { LinkButton } from "./Atoms/LinkButton/LinkButton"
 import "../css/Mininavbar.css"
 
 class Mininavbar extends Component {

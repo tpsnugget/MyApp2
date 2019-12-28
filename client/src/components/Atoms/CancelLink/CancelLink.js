@@ -1,10 +1,9 @@
-import React, { Component } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import "./CancelLink.css"
 
-class CancelLink extends Component {
+export const CancelLink = () => {
 
-   render() {
       return (
          <div className="CancelLink-div">
             <Link to="/landing" className="CancelLink-link">
@@ -14,7 +13,4 @@ class CancelLink extends Component {
             </Link>
          </div>
       )
-   }
 }
-
-export default CancelLink

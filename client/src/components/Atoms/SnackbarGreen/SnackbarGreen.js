@@ -1,16 +1,11 @@
-import React, { Component } from "react"
+import React from "react"
 import "./SnackbarGreen.css"
 
-class SnackbarGreen extends Component{
-
-   render(){
+export const SnackbarGreen = ({ msg }) => {
 
       return(
          <div className="SnackbarGreen">
-            <p className="SnackbarGreen-p">{this.props.msg}</p>
+            <p className="SnackbarGreen-p">{msg}</p>
          </div>
       )
-   }
 }
-
-export default SnackbarGreen

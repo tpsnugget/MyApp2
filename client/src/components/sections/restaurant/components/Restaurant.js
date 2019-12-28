@@ -5,7 +5,7 @@ import axios from "axios"
 import PropTypes from "prop-types"
 import Sidebar from "../../../Sidebar"
 import Mininavbar from "../../../Mininavbar"
-import CancelLink from "../../../Atoms/CancelLink/CancelLink"
+import { CancelLink } from "../../../Atoms/CancelLink/CancelLink"
 import RestaurantShow from "./RestaurantShow"
 import "../css/Restaurant.css"
 

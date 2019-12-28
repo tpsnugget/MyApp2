@@ -2,9 +2,9 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import "./TextArea.css"
 
-class TextArea extends Component {
+export const TextArea = ({ rows, cols, label, placeholder, type, name, value, handleChange }) => {
 
-   static propTypes = {
+   TextArea.propTypes = {
       /* Sizes the textarea container */
       rows: PropTypes.string,
 
@@ -15,30 +15,13 @@ class TextArea extends Component {
       label: PropTypes.string
    }
 
-   constructor(props) {
-      super(props)
-      this.handleChangeHere = this.handleChangeHere.bind(this)
-   }
-
-   handleChangeHere(e) {
-      e.preventDefault()
-      this.props.handleChange(e)
-   }
-
-   render() {
-
-      const { rows, cols, label, placeholder, type, name, value } = this.props
-
       return (
          <label className="TextArea-label"><span className="TextArea-span">{label}</span>
             <div>
-               <textarea className="TextArea-textarea" rows={rows} cols={cols} name={name} placeholder={placeholder} type={type} value={value} onChange={this.handleChangeHere}>
+               <textarea className="TextArea-textarea" rows={rows} cols={cols} name={name} placeholder={placeholder} type={type} value={value} onChange={handleChange}>
 
                </textarea>
             </div>
          </label>
       )
-   }
 }
-
-export default TextArea

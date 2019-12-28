@@ -1,7 +1,7 @@
 /* MAIN LANDING PAGE */
 
 import React, { Component } from "react"
-import MainLandingImageButton from "./Atoms/MainLandingImageButton/MainLandingImageButton"
+import { MainLandingImageButton } from "./Atoms/MainLandingImageButton/MainLandingImageButton"
 import "../css/Landing.css"
 
 class Landing extends Component {

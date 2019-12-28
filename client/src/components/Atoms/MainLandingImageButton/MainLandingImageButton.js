@@ -1,22 +1,18 @@
-import React, { Component } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 import "./MainLandingImageButton.css"
 
-class MainLandingImageButton extends Component{
+export const MainLandingImageButton = ({ label, src }) => {
 
-   static propTypes = {
+   MainLandingImageButton.propTypes = {
       /* Label for above the image, and for the alt attribute */
       label: PropTypes.string,
       /* image location */
       src: PropTypes.string
    }
 
-   render(){
-
-      const path = `/${this.props.label}`
-
-      const { label, src } = this.props
+      const path = `/${label}`
 
       return(
          <div className="Landing-button">
@@ -29,7 +25,4 @@ class MainLandingImageButton extends Component{
             </Link>
          </div>
       )
-   }
 }
-
-export default MainLandingImageButton

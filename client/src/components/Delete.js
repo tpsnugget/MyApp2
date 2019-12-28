@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Redirect } from "react-router-dom"
-import SnackbarGreen from "./Atoms/SnackbarGreen/SnackbarGreen"
-import SnackbarRed from "./Atoms/SnackbarRed/SnackbarRed"
+import { SnackbarGreen } from "./Atoms/SnackbarGreen/SnackbarGreen"
+import { SnackbarRed } from "./Atoms/SnackbarRed/SnackbarRed"
 import axios from "axios"
 
 class Delete extends Component{

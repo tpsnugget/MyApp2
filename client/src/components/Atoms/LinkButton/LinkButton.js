@@ -1,15 +1,15 @@
-import React, { Component } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 import "./LinkButton.css"
 
-class LinkButton extends Component {
+export const LinkButton = ({ newPath, buttonLabel, name, chosenId }) => {
 
-   static defaultProps = {
+   LinkButton.defaultProps = {
       chosenId: ""
    }
 
-   static propTypes = {
+   LinkButton.propTypes = {
       /* path for the Link from react-router-dom */
       newPath: PropTypes.string,
       /* label for the button face (left side of the text) */
@@ -22,14 +22,9 @@ class LinkButton extends Component {
       chosenId: PropTypes.string
    }
 
-   render() {
-
-      const { newPath, buttonLabel, name, chosenId } = this.props
-
       return (
          <div className="LinkButton-div">
             <Link
-               // to={newPath}
                to={{
                   pathname: newPath,
                   state: {
@@ -43,7 +38,4 @@ class LinkButton extends Component {
             </Link>
          </div>
       )
-   }
 }
-
-export default LinkButton

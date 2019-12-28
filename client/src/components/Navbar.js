@@ -1,11 +1,11 @@
-import React, { Component } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
 import "../css/Navbar.css"
 
-class Navbar extends Component {
+export const Navbar = ({ isLoggedIn, loggedInName, handleLogout }) => {
 
-   static propTypes = {
+   Navbar.propTypes = {
       /* Passed down from App.js in order to customize the Navbar */
       isLoggedIn: PropTypes.bool,
 
@@ -17,19 +17,6 @@ class Navbar extends Component {
       logout: PropTypes.func
    }
 
-   constructor(props){
-      super(props)
-      this.handleLogout = this.handleLogout.bind(this)
-   }
-
-   handleLogout(){
-      this.props.logout()
-   }
-
-   render() {
-
-      const { isLoggedIn, loggedInName } = this.props
-
       const loginSignupLinks =
          <div className="Navbar-right">
             <Link to="/login" className="Navbar-right-links">Login</Link>
@@ -38,7 +25,7 @@ class Navbar extends Component {
 
       const logoutLink =
          <div className="Navbar-right">
-            <Link to="/login" className="Navbar-right-links" onClick={this.handleLogout}>Logout</Link>
+            <Link to="/login" className="Navbar-right-links" onClick={handleLogout}>Logout</Link>
          </div>
 
       return (
@@ -49,7 +36,4 @@ class Navbar extends Component {
             {isLoggedIn ? logoutLink : loginSignupLinks}
          </div >
       )
-   }
 }
-
-export default Navbar

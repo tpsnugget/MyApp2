@@ -1,12 +1,11 @@
 /* MAIN LANDING PAGE */
 
-import React, { Component } from "react"
+import React from "react"
 import { MainLandingImageButton } from "./Atoms/MainLandingImageButton/MainLandingImageButton"
 import "../css/Landing.css"
 
-class Landing extends Component {
+export const Landing = () => {
 
-   render() {
       return (
          <div className="Landing-main-container">
             <div className="Landing-img-row">
@@ -40,7 +39,4 @@ class Landing extends Component {
             </div>
          </div>
       )
-   }
 }
-
-export default Landing

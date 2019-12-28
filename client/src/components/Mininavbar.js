@@ -1,11 +1,11 @@
-import React, { Component } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { LinkButton } from "./Atoms/LinkButton/LinkButton"
 import "../css/Mininavbar.css"
 
-class Mininavbar extends Component {
+export const Mininavbar = ({ allowedToModifySelection, chosenId, name }) => {
 
-   static propTypes = {
+   Mininavbar.propTypes = {
       /* Passed down from one of the four main landing pages. Used to complete
          the path, and used on part of the button face on the LinkButton Atom.
          name options are Beer, Recipe, Restaurant, RV. */
@@ -21,24 +21,16 @@ class Mininavbar extends Component {
       allowedToModifySelection: PropTypes.bool
    }
 
-   render() {
-
-      const { allowedToModifySelection, chosenId, name } = this.props
-
       const newPath = `/${name.toLowerCase()}/new`
       const editPath = `/${name.toLowerCase()}/edit`
-      // const deletePath = `/${this.props.name.toLowerCase()}/delete`
 
       return (
          <div className="Mininavbar-main-container">
 
-         <LinkButton newPath={newPath} name={name} buttonLabel="Add New"/>
-         {allowedToModifySelection && <LinkButton buttonLabel="Edit" chosenId={chosenId} newPath={editPath} name={name} />}
-         {allowedToModifySelection && <LinkButton buttonLabel="Delete" chosenId={chosenId} newPath="/delete" name={name} />}
+            <LinkButton newPath={newPath} name={name} buttonLabel="Add New" />
+            {allowedToModifySelection && <LinkButton buttonLabel="Edit" chosenId={chosenId} newPath={editPath} name={name} />}
+            {allowedToModifySelection && <LinkButton buttonLabel="Delete" chosenId={chosenId} newPath="/delete" name={name} />}
 
          </div>
       )
    }
-}
-
-export default Mininavbar

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from "react-router-dom"
-import Navbar from "./components/Navbar"
-import Landing from "./components/Landing"
+import { Navbar } from "./components/Navbar"
+import { Landing } from "./components/Landing"
 import User from "./components/User"
 import Login from "./components/Login"
 import Delete from "./components/Delete"

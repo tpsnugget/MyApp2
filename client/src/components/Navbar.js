@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import PropTypes from "prop-types"
 import "../css/Navbar.css"
 
-export const Navbar = ({ isLoggedIn, loggedInName, handleLogout }) => {
+export const Navbar = ({ isLoggedIn, loggedInName, logout }) => {
 
    Navbar.propTypes = {
       /* Passed down from App.js in order to customize the Navbar */
@@ -25,7 +25,7 @@ export const Navbar = ({ isLoggedIn, loggedInName, handleLogout }) => {
 
       const logoutLink =
          <div className="Navbar-right">
-            <Link to="/login" className="Navbar-right-links" onClick={handleLogout}>Logout</Link>
+            <Link to="/" className="Navbar-right-links" onClick={logout}>Logout</Link>
          </div>
 
       return (

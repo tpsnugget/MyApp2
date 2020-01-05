@@ -10,32 +10,34 @@ export const LinkButton = ({ newPath, buttonLabel, name, chosenId }) => {
    }
 
    LinkButton.propTypes = {
-      /* path for the Link from react-router-dom */
-      newPath: PropTypes.string,
+      /* Passed down from Mininavbar */
+      chosenId: PropTypes.string,
+
       /* label for the button face (left side of the text) */
       label: PropTypes.string,
+
       /* label for the button face (right side of the text) */
       /* Beer, Recipe, Restaurant, RV */
       name: PropTypes.string,
 
-      /* Passed down from Mininavbar */
-      chosenId: PropTypes.string
+      /* path for the Link from react-router-dom */
+      newPath: PropTypes.string
    }
 
-      return (
-         <div className="LinkButton-div">
-            <Link
-               to={{
-                  pathname: newPath,
-                  state: {
-                     id: chosenId,
-                     type: name      
-                  }
-               }}
-               className="LinkButton-link-new"
-            >
-               {buttonLabel} {name}
-            </Link>
-         </div>
-      )
+   return (
+      <div className="LinkButton-div">
+         <Link
+            to={{
+               pathname: newPath,
+               state: {
+                  id: chosenId,
+                  type: name
+               }
+            }}
+            className="LinkButton-link-new"
+         >
+            {buttonLabel} {name}
+         </Link>
+      </div>
+   )
 }

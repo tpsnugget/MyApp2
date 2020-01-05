@@ -1,4 +1,4 @@
-/* Add a New Restauratn PAGE */
+/* EDIT RESTAURANT PAGE */
 
 import React, { Component } from "react"
 import { Redirect } from "react-router-dom"

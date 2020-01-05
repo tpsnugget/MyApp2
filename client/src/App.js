@@ -29,6 +29,7 @@ class App extends Component {
       isLoggedIn: false,
       loggedInName: ""
     })
+    // These are not needed as I am using arrow functions below
     // this.updateLoggedInName = this.updateLoggedInName.bind(this)
     // this.logout = this.logout.bind(this)
   }

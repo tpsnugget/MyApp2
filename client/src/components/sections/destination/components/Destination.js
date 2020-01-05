@@ -7,7 +7,6 @@ import Sidebar from "../../../Sidebar"
 import { Mininavbar } from "../../../Mininavbar"
 import { CancelLink } from "../../../Atoms/CancelLink/CancelLink"
 import DestinationShow from "./DestinationShow"
-// import BeerShow from "./BeerShow"
 import "../css/Destination.css"
 
 

@@ -171,8 +171,6 @@ class BeerEdit extends Component {
          city, state, zip, phone, latitude, longitude, image, website, beerType,
          beerColor, glassware, abv, ibu, rating, notes } = this.state
 
-      // const { id } = this.props.location.state
-
       return (
          <div className="BeerEdit-main-container">
             {addBeerSuccessful && <Redirect to="/beer" />}

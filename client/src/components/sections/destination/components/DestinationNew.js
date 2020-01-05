@@ -1,4 +1,4 @@
-/* Add a New BEER PAGE */
+/* Add a New DESTINATION PAGE */
 
 import React, { Component } from "react"
 import { Redirect } from "react-router-dom"

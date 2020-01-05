@@ -19,6 +19,7 @@ import RestaurantNew from "./components/sections/restaurant/components/Restauran
 import RestaurantEdit from "./components/sections/restaurant/components/RestaurantEdit"
 import RV from "./components/sections/rv/components/RV"
 import RVNew from "./components/sections/rv/components/RVNew"
+import RVEdit from "./components/sections/rv/components/RVEdit"
 import './css/App.css';
 
 class App extends Component {
@@ -112,6 +113,8 @@ class App extends Component {
           </Route>
           <Route exact path="/rv/new">
             {isLoggedIn && <RVNew username={loggedInName} />}
+          </Route>
+          <Route exact path="/rv/edit" component={RVEdit}>
           </Route>
 
         </Switch>

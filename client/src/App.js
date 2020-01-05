@@ -29,18 +29,18 @@ class App extends Component {
       isLoggedIn: false,
       loggedInName: ""
     })
-    this.updateLoggedInName = this.updateLoggedInName.bind(this)
-    this.logout = this.logout.bind(this)
+    // this.updateLoggedInName = this.updateLoggedInName.bind(this)
+    // this.logout = this.logout.bind(this)
   }
 
-  updateLoggedInName(e) {
+  updateLoggedInName = (e) => {
     this.setState({
       isLoggedIn: true,
       loggedInName: e
     })
   }
 
-  logout() {
+  logout = () => {
     this.setState({ isLoggedIn: false })
   }
 
@@ -75,6 +75,7 @@ class App extends Component {
           <Route exact path="/beer/edit" component={BeerEdit}>
           </Route>
 
+
           <Route exact path="/destination">
             {isLoggedIn && <Destination name="Destination" loggedInName={loggedInName} />}
           </Route>
@@ -94,6 +95,7 @@ class App extends Component {
           <Route exact path="/recipe/edit" component={RecipeEdit}>
           </Route>
 
+
           <Route exact path="/restaurant">
             {isLoggedIn && <Restaurant name="Restaurant" loggedInName={loggedInName} />}
           </Route>
@@ -102,6 +104,7 @@ class App extends Component {
           </Route>
           <Route exact path="/restaurant/edit" component={RestaurantEdit}>
           </Route>
+
 
           <Route exact path="/rv">
             {isLoggedIn && <RV name="RV" loggedInName={loggedInName} />}

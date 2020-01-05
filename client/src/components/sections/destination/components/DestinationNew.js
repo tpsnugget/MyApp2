@@ -40,7 +40,7 @@ class DestinationNew extends Component {
          image: "",
          website: "",
          rating: "",
-         personaNotes: "",
+         personalNotes: "",
          pubNotes: "",
          restaurantNotes: "",
          sightNotes: "",

@@ -1,4 +1,4 @@
-/* BEER LANDING PAGE */
+/* DESTINATION LANDING PAGE */
 
 import React, { Component } from "react"
 import axios from "axios"
@@ -6,6 +6,7 @@ import PropTypes from "prop-types"
 import Sidebar from "../../../Sidebar"
 import { Mininavbar } from "../../../Mininavbar"
 import { CancelLink } from "../../../Atoms/CancelLink/CancelLink"
+import DestinationShow from "./DestinationShow"
 // import BeerShow from "./BeerShow"
 import "../css/Destination.css"
 
@@ -57,7 +58,7 @@ class Destination extends Component {
 
    render() {
 
-      const { chosenId } = this.state
+      const { chosenId, data } = this.state
       const { addedBy } = this.state.data
       const { loggedInName, name } = this.props
 
@@ -70,6 +71,7 @@ class Destination extends Component {
                <div className="Destination-inner-container">
                   <Mininavbar name={name} chosenId={chosenId} allowedToModifySelection={allowedToModifySelection} />
                   <div>
+                  {(chosenId !== "") && <DestinationShow data={data} />}
                      {/* {(chosenId !== "") && <BeerShow data={data} />} */}
                   </div>
                   <div className="Destination-cancel">
